@@ -25,4 +25,5 @@ public class Participant implements Serializable {
     @ManyToMany
     Set<Event> events;
 
+
 }

@@ -101,7 +101,6 @@ public class EventServicesImpl implements IEventServices{
     @Override
     public void calculCout() {
         List<Event> events = eventRepository.findByParticipants_NomAndParticipants_PrenomAndParticipants_Tache("Tounsi","Ahmed", Tache.ORGANISATEUR);
-    // eventRepository.findAll();
         float somme = 0f;
         for(Event event:events){
             log.info(event.getDescription());

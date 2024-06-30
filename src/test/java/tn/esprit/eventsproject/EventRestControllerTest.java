@@ -14,9 +14,6 @@ import tn.esprit.eventsproject.entities.Logistics;
 import tn.esprit.eventsproject.entities.Participant;
 import tn.esprit.eventsproject.services.IEventServices;
 
-import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -24,7 +21,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-public class EventRestControllerTest {
+class EventRestControllerTest {
 
     private MockMvc mockMvc;
 
@@ -41,7 +38,7 @@ public class EventRestControllerTest {
     }
 
     @Test
-    public void testAddParticipant() throws Exception {
+    void testAddParticipant() throws Exception {
         Participant participant = new Participant();
         participant.setNom("Doe");
         participant.setPrenom("John");
@@ -56,7 +53,7 @@ public class EventRestControllerTest {
     }
 
     @Test
-    public void testAddEventPart() throws Exception {
+    void testAddEventPart() throws Exception {
         Event event = new Event();
         event.setDescription("Event 1");
         when(eventServices.addAffectEvenParticipant(any(Event.class), any(Integer.class))).thenReturn(event);
@@ -69,7 +66,7 @@ public class EventRestControllerTest {
     }
 
     @Test
-    public void testAddEvent() throws Exception {
+    void testAddEvent() throws Exception {
         Event event = new Event();
         event.setDescription("Event 1");
         when(eventServices.addAffectEvenParticipant(any(Event.class))).thenReturn(event);
@@ -82,7 +79,7 @@ public class EventRestControllerTest {
     }
 
     @Test
-    public void testAddAffectLog() throws Exception {
+    void testAddAffectLog() throws Exception {
         Logistics logistics = new Logistics();
         logistics.setDescription("Logistics 1");
         when(eventServices.addAffectLog(any(Logistics.class), any(String.class))).thenReturn(logistics);

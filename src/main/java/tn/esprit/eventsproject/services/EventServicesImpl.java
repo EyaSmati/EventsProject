@@ -76,26 +76,26 @@ public class EventServicesImpl implements IEventServices{
     }
 
     @Override
-    public List<Logistics> getLogisticsDates(LocalDate date_debut, LocalDate date_fin) {
-        List<Event> events = eventRepository.findByDateDebutBetween(date_debut, date_fin);
-
+    public List<Logistics> getLogisticsDates(LocalDate dateDebut, LocalDate dateFin) {
+        List<Event> events = eventRepository.findByDateDebutBetween(dateDebut, dateFin);
         List<Logistics> logisticsList = new ArrayList<>();
-        for (Event event:events){
-            if(event.getLogistics().isEmpty()){
-
-                return null;
-            }
-
-            else {
-                Set<Logistics> logisticsSet = event.getLogistics();
-                for (Logistics logistics:logisticsSet){
-                    if(logistics.isReserve())
+    
+        for (Event event : events) {
+            Set<Logistics> logisticsSet = event.getLogistics();
+            
+            // Check if the logistics set is empty
+            if (!logisticsSet.isEmpty()) {
+                for (Logistics logistics : logisticsSet) {
+                    if (logistics.isReserve()) {
                         logisticsList.add(logistics);
+                    }
                 }
             }
         }
+    
         return logisticsList;
     }
+    
 
     @Scheduled(cron = "*/60 * * * * *")
     @Override

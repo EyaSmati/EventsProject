@@ -15,7 +15,7 @@ services:
 
   events_app:
     image: eyasmati/events:${IMAGE_TAG}
-    container_name: contrat_app
+    container_name: events_app
     restart: unless-stopped
     ports:
       - 8089:8089

@@ -14,7 +14,7 @@ services:
       - db:/var/lib/mysqldb
 
   events_app:
-    image: :${IMAGE_TAG}
+    image: eyasmati/events:${IMAGE_TAG}
     container_name: contrat_app
     restart: unless-stopped
     ports:
